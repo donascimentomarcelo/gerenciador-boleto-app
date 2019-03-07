@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from './../../services/users.service';
+import { Client } from './../../models/client';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public clients: Client[] = [];
+
+  constructor(private usersService: UsersService) { }
 
   ngOnInit() {
+    this.list();
+  }
+
+  public list(): void {
+    this.usersService.list()
+      .subscribe(res => this.clients = res);
   }
 
 }

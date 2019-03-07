@@ -5,10 +5,19 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
-import { MatTabsModule, MatSidenavModule, MatIconModule, MatButtonModule, MatToolbarModule, MatListModule, MatMenuModule } from '@angular/material';
+import {
+  MatTabsModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatButtonModule,
+  MatToolbarModule,
+  MatListModule,
+  MatMenuModule
+} from '@angular/material';
 import { HeaderComponent } from './pages/shared/header/header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SidenavListComponent } from './pages/shared/sidenav-list/sidenav-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,6 +38,7 @@ import { SidenavListComponent } from './pages/shared/sidenav-list/sidenav-list.c
     FlexLayoutModule,
     MatListModule,
     MatMenuModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
