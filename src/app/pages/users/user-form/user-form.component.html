@@ -4,25 +4,27 @@
       <mat-card-subtitle>Preencha todos os campos antes de salvar.</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <div class="container">
+      <form [formGroup]="formGroup" class="container">
+        <div formGroupName="client" class="container">
             <mat-form-field>
-              <input matInput placeholder="Nome">
+              <input matInput placeholder="Nome" formControlName="name">
             </mat-form-field>
             <mat-form-field>
-              <input matInput placeholder="Sobrenome">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput placeholder="Login">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput placeholder="Senha" type="password">
+              <input matInput placeholder="Sobrenome" formControlName="lastname">
             </mat-form-field>
         </div>
+        <mat-form-field>
+          <input matInput placeholder="Login" formControlName="username">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Senha" type="password" formControlName="password">
+        </mat-form-field>
+      </form>
     </mat-card-content>
     <mat-card-actions>
         <div class="button-row">
-            <button mat-raised-button>Voltar</button>
-            <button mat-raised-button color="primary">Salvar</button>
+            <button mat-raised-button routerLink="/users">Voltar</button>
+            <button mat-raised-button color="primary" (click)="save()">Salvar</button>
         </div>
     </mat-card-actions>
 </mat-card>

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from './../../../environments/environment';
 import { Client } from './../models/client';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,17 @@ export class UsersService {
 
   public paginate(page: number): Observable<any> {
     return this.http.get<any>(`${environment.api_url}/users?page=${page}`, {});
+  }
+
+  public findOne(user: number): Observable<User> {
+    return this.http.get<User>(`${environment.api_url}/users/${user}`, {});
+  }
+
+  public save(user: User): Observable<any> {
+    return this.http.post<any>(`${environment.api_url}/users`, user);
+  }
+
+  public update(user: User, id: number): Observable<any> {
+    return this.http.put<any>(`${environment.api_url}/users/${id}`, user);
   }
 }

@@ -10,9 +10,11 @@ import {
   MatButtonModule,
   MatCardModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatSnackBarModule
 } from '@angular/material';
 import { UserFormComponent } from './user-form/user-form.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -25,6 +27,9 @@ import { UserFormComponent } from './user-form/user-form.component';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatSnackBarModule,
   ],
   declarations: [UsersComponent, UserFormComponent]
 })
