@@ -1,0 +1,28 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title> {{ title }} Usuário</mat-card-title>
+      <mat-card-subtitle>Preencha todos os campos antes de salvar.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="container">
+            <mat-form-field>
+              <input matInput placeholder="Nome">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Sobrenome">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Login">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Senha" type="password">
+            </mat-form-field>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="button-row">
+            <button mat-raised-button>Voltar</button>
+            <button mat-raised-button color="primary">Salvar</button>
+        </div>
+    </mat-card-actions>
+</mat-card>
