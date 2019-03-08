@@ -14,4 +14,8 @@ export class UsersService {
   public list(): Observable<Client[]> {
     return this.http.get<Client[]>(`${environment.api_url}/users/list/all`, {});
   }
+
+  public paginate(page: number): Observable<any> {
+    return this.http.get<any>(`${environment.api_url}/users?page=${page}`, {});
+  }
 }
