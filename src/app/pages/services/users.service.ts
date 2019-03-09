@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from './../../../environments/environment';
 import { Client } from './../models/client';
 import { User } from '../models/user';
+import { ResponseContentType, Headers } from '@angular/http';
 
 @Injectable({
   providedIn: 'root'
@@ -42,5 +43,11 @@ export class UsersService {
 
   public delete(id: number): Observable<any> {
     return this.http.delete<any>(`${environment.api_url}/users/${id}`, {});
+  }
+
+  public download(username: string): Observable<any> {
+    const headers = new Headers();
+    headers.append('Accept', 'application/pdf');
+    return this.http.post(`${environment.api_url}/uploads/download/${username}`, {}, {responseType: 'arraybuffer'});
   }
 }

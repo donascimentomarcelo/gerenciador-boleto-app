@@ -5,7 +5,7 @@
     </mat-card-header>
     <mat-card-content>
         <mat-form-field>
-            <mat-select placeholder="Nome">
+            <mat-select placeholder="Nome" [(ngModel)]="username" >
               <mat-option *ngFor="let client of clients" [value]="client.user.username">
                 {{client.name}} {{client.lastname}}
               </mat-option>
@@ -13,6 +13,6 @@
           </mat-form-field>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-raised-button color="primary">Baixar</button>
+        <button mat-raised-button color="primary" (click)="download()" >Baixar</button>
     </mat-card-actions>
 </mat-card>

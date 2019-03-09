@@ -25,8 +25,15 @@ export class ConfirmComponent implements OnInit {
   public yes(): void {
     this.usersService.delete(this.data.user_id)
       .subscribe(resp => {
-        console.log(resp);
-      }, error => console.log(error));
+        this.snackBar.open('Registro excluído com sucesso.', 'Fechar', {
+          duration: 2000,
+        });
+        this.no();
+      }, error => {
+        this.snackBar.open('Houve um erro ao excluir registro.', 'Fechar', {
+          duration: 2000,
+        });
+      });
   }
 
 }
