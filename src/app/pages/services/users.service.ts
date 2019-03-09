@@ -31,4 +31,12 @@ export class UsersService {
   public update(user: User, id: number): Observable<any> {
     return this.http.put<any>(`${environment.api_url}/users/${id}`, user);
   }
+
+  public upload(file: any, user_id: number): Observable<any> {
+    const formData = new FormData();
+    formData.append('file', file, 'imageName');
+    formData.append('user_id', user_id.toString());
+
+    return this.http.post<any>(`${environment.api_url}/uploads/store`, formData);
+  }
 }

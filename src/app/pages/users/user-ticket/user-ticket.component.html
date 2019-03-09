@@ -2,7 +2,10 @@
     <mat-card-header>
       <mat-card-title>
         Insira o boleto 
-        <button mat-mini-fab color="primary"><mat-icon>add</mat-icon></button>
+        <button mat-mini-fab color="accent" (click)="fileInput.click()">
+            <mat-icon>attach_file</mat-icon>
+            <input #fileInput type="file" (change)="onFileInput($event.target.files)" style="display:none;" />
+          </button>
       </mat-card-title>
       <mat-card-subtitle>Insira um boleto no formato pdf.</mat-card-subtitle>
     </mat-card-header>
@@ -10,6 +13,6 @@
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button>Fechar</button>
-      <button mat-raised-button color="primary">Enviar</button>
+      <button mat-raised-button color="primary" (click)="send()" >Enviar</button>
     </mat-card-actions>
 </mat-card>

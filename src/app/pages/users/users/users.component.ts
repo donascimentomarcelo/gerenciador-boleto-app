@@ -39,10 +39,10 @@ export class UsersComponent implements OnInit {
       });
   }
 
-  public showModalTicket(): void {
+  public showModalTicket(user_id: number): void {
     const dialogRef = this.dialog.open(UserTicketComponent, {
       width: '500px',
-      data: {name: 123}
+      data: {user_id: user_id}
     });
   }
 }
