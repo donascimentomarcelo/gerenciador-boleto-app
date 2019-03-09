@@ -25,9 +25,9 @@ export class UserFormComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.path = this.activatedRoute.url['value'][0].path === 'new';
+    this.path = this.activatedRoute.url['value'][0].path;
     this.initForm();
-    if (this.path) {
+    if (this.path  === 'new') {
       this.actionsToSave();
     } else {
       this.actionsToEdit();

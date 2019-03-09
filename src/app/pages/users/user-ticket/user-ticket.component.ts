@@ -19,7 +19,6 @@ export class UserTicketComponent implements OnInit {
     private snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    console.log(this.data)
   }
 
   public onFileInput(file: FileList): void {

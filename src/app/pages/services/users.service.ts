@@ -39,4 +39,8 @@ export class UsersService {
 
     return this.http.post<any>(`${environment.api_url}/uploads/store`, formData);
   }
+
+  public delete(id: number): Observable<any> {
+    return this.http.delete<any>(`${environment.api_url}/users/${id}`, {});
+  }
 }

@@ -18,12 +18,14 @@ import { HeaderComponent } from './pages/shared/header/header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SidenavListComponent } from './pages/shared/sidenav-list/sidenav-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ConfirmComponent } from './pages/shared/confirm/confirm.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SidenavListComponent,
+    ConfirmComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +50,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
+  ],
+  entryComponents: [
+    ConfirmComponent
   ]
 })
 export class AppModule { }

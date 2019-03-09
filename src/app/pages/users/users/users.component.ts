@@ -3,6 +3,7 @@ import { UsersService } from './../../services/users.service';
 import {MatPaginator, MatTableDataSource, MatDialog} from '@angular/material';
 import { PeriodicElement } from '../../models/periodicElement';
 import { UserTicketComponent } from './../user-ticket/user-ticket.component';
+import { ConfirmComponent } from './../../shared/confirm/confirm.component';
 
 @Component({
   selector: 'app-users',
@@ -40,8 +41,15 @@ export class UsersComponent implements OnInit {
   }
 
   public showModalTicket(user_id: number): void {
-    const dialogRef = this.dialog.open(UserTicketComponent, {
+    this.dialog.open(UserTicketComponent, {
       width: '500px',
+      data: {user_id: user_id}
+    });
+  }
+
+  public delete(user_id: number): void {
+    this.dialog.open(ConfirmComponent, {
+      width: '300px',
       data: {user_id: user_id}
     });
   }
