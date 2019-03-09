@@ -19,7 +19,7 @@ export class ConfirmComponent implements OnInit {
   }
 
   public no(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(false);
   }
 
   public yes(): void {
@@ -28,7 +28,7 @@ export class ConfirmComponent implements OnInit {
         this.snackBar.open('Registro excluído com sucesso.', 'Fechar', {
           duration: 2000,
         });
-        this.no();
+        this.dialogRef.close(true);
       }, error => {
         this.snackBar.open('Houve um erro ao excluir registro.', 'Fechar', {
           duration: 2000,

@@ -51,6 +51,12 @@ export class UsersComponent implements OnInit {
     this.dialog.open(ConfirmComponent, {
       width: '300px',
       data: {user_id: user_id}
+    })
+    .afterClosed()
+    .subscribe(resp => {
+      if (resp) {
+        this.list();
+      }
     });
   }
 }
