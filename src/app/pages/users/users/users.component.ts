@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UsersService } from './../../services/users.service';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {MatPaginator, MatTableDataSource, MatDialog} from '@angular/material';
 import { PeriodicElement } from '../../models/periodicElement';
+import { UserTicketComponent } from './../user-ticket/user-ticket.component';
 
 @Component({
   selector: 'app-users',
@@ -10,7 +11,7 @@ import { PeriodicElement } from '../../models/periodicElement';
 })
 export class UsersComponent implements OnInit {
 
-  displayedColumns: string[] = ['Nome', 'Sobrenome', 'details', 'update', 'delete'];
+  displayedColumns: string[] = ['Nome', 'Sobrenome', 'ticket', 'update', 'delete'];
   dataSource;
   total: number;
   pageIndex = 1;
@@ -21,7 +22,9 @@ export class UsersComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private usersService: UsersService) { }
+  constructor(
+    private usersService: UsersService,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
     this.list();
@@ -34,5 +37,12 @@ export class UsersComponent implements OnInit {
         this.dataSource.paginator = this.paginator;
         this.total = resp.length;
       });
+  }
+
+  public showModalTicket(): void {
+    const dialogRef = this.dialog.open(UserTicketComponent, {
+      width: '500px',
+      data: {name: 123}
+    });
   }
 }

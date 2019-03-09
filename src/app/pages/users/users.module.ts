@@ -11,10 +11,12 @@ import {
   MatCardModule,
   MatFormFieldModule,
   MatInputModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatDialogModule
 } from '@angular/material';
 import { UserFormComponent } from './user-form/user-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { UserTicketComponent } from './user-ticket/user-ticket.component';
 
 @NgModule({
   imports: [
@@ -30,7 +32,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
     MatSnackBarModule,
+    MatDialogModule,
   ],
-  declarations: [UsersComponent, UserFormComponent]
+  declarations: [UsersComponent, UserFormComponent, UserTicketComponent],
+  entryComponents: [UserTicketComponent]
 })
 export class UsersModule { }
