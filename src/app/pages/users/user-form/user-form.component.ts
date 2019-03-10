@@ -37,7 +37,7 @@ export class UserFormComponent implements OnInit {
   initForm(): void {
     this.formGroup = this.formBuilder.group({
       username: [null, [Validators.required]],
-      password: [this.path === 'new' ? [null, [Validators.required]] : {value: null, disabled: true}],
+      password: [null, [Validators.required]],
       client: this.formBuilder.group({
         name: [null, [Validators.required]],
         lastname: [null],

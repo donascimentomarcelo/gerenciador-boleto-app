@@ -8,6 +8,7 @@
         <div formGroupName="client" class="container">
             <mat-form-field>
               <input matInput placeholder="Nome" formControlName="name">
+              <p class="danger" *ngIf="formGroup.controls.client.controls.name.dirty && formGroup.controls.client.controls.name.errors" margin-left>Campo obrigatório</p>
             </mat-form-field>
             <mat-form-field>
               <input matInput placeholder="Sobrenome" formControlName="lastname">
@@ -15,16 +16,18 @@
         </div>
         <mat-form-field>
           <input matInput placeholder="Login" formControlName="username">
+          <p class="danger" *ngIf="formGroup.controls.username.dirty && formGroup.controls.username.errors" margin-left>Campo obrigatório</p>
         </mat-form-field>
         <mat-form-field>
           <input matInput placeholder="Senha" type="password" formControlName="password">
+          <p class="danger" *ngIf="formGroup.controls.password.dirty && formGroup.controls.password.errors" margin-left>Campo obrigatório</p>
         </mat-form-field>
       </form>
     </mat-card-content>
     <mat-card-actions>
         <div class="button-row">
             <button mat-raised-button routerLink="/users">Voltar</button>
-            <button mat-raised-button color="primary" (click)="save()">Salvar</button>
+            <button mat-raised-button color="primary" [disabled]="formGroup.invalid" (click)="save()">Salvar</button>
         </div>
     </mat-card-actions>
 </mat-card>
